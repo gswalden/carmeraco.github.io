@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carmera - Data. Driven.</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/layout.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+</head>
+<body>
+
+    <div class="container">
+        <div class="left">
+            <div class="logo"></div>
+            <div class="name">CARMERA</div>
+            <div class="line">EYES ON THE ROAD</div>
+        </div>
+        <div class="center"></div>
+        <div class="right">
+            <div class="details" id="details">Free video monitoring and real time<br>road intelligence for urban fleets.</div>
+            <div class="getintouch" id="getintouch" style="margin-top:0px;">FIND OUT MORE</div>
+            <div id="form" class="fleet_form">
+                <div class="msg"></div>
+                <input name="entry.1644434305" placeholder="Name *" data-req="true">
+                <div class="msg"></div>
+                <input name="entry.302695077" placeholder="Company or Website *" data-req="true">
+                <div class="msg"></div>
+                <input name="entry.963052700" placeholder="Email *" data-req="true">
+                <div class="msg"></div>
+                <input name="entry.1567625489" placeholder="Phone" data-req="false">
+                <div class="msg"></div>
+                <input name="entry.787660964" placeholder="Garage Location (e.g. Brooklyn, NY)" data-req="false">
+                <div class="msg"></div>
+                <input name="entry.766686749" placeholder="# of Vehicles" data-req="false">
+                <div class="msg"></div>
+                <input name="entry.432406382" placeholder="Types of Vehicles (e.g. Cars, Trucks, Vans...)" data-req="false">
+                <div class="msg"></div>
+                <input name="entry.277669866" placeholder="Yearly Milage per Vehicle" data-req="false">
+                <div class="msg"></div>
+                <textarea name="entry.1162535895" placeholder="Other Notes"></textarea>
+                <div class="send" id="send">SEND</div>
+            </div>
+            <div id="ty">Thank you!</div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+
+    var GoogleForm = function(google_id, data, cb) {
+        var url = "https://docs.google.com/forms/d/"+google_id+"/formResponse";
+        $.ajax( {
+            type: 'POST',
+            data: data,
+            dataType: 'xml',
+            url: url,
+            crossDomain: true,
+            complete: function(data, status) {
+                if (data.status == 0 || data.status == 200) {
+                    cb();
+                }
+            }
+        } );
+    };
+
+    $('#getintouch').on('click', function() {
+        $('#details').fadeOut(100);
+        $(this).fadeOut(100, function() {
+            $('#form').fadeIn(100);
+        } );
+    } );
+
+    $('#send').on('click', function() {
+
+        var can_send = true;
+        var data = {};
+
+        $('#form').children().each( function() {
+            if ($(this)[0].type == 'text' || $(this)[0].type == 'textarea') {
+                if ($(this).val() == '' && $(this).attr('data-req') == 'true') {
+                    $(this).prev().html('Required Field');
+                    can_send = false;
+                    return;
+                }
+                data[$(this).attr('name')] = $(this).val();
+            }
+        } );
+
+        if (can_send) {
+            GoogleForm('1fIEjmlMGSo4qIQKVAqFLS5xDQ7ad4XtqfxCcv4ulKI4', data, function() {
+                $('#form').fadeOut(100, function() {
+                    $('#ty').fadeIn(100);
+                } );
+            } );
+        }
+
+    } );
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-64904529-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+</body>
+</html>

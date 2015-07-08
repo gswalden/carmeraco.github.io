@@ -74,12 +74,20 @@ html, body {
     width: 140px;
     padding: 15px;
     cursor: pointer;
-    margin-left: 89.5px;
+    margin-left: 83.5px;
     margin-top: 122.5px;
 }
 .getintouch:hover {
     border: 5px solid #FFF;
     background-color: #F58E26;
+}
+.details {
+    font-family: 'sfreg', 'Helvetica', 'sans-serif';
+    font-size: 14px;
+    color: #FFF;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 100px;
 }
 .send {
     font-family: 'sfbold', 'Helvetica', 'sans-serif';
@@ -90,7 +98,7 @@ html, body {
     width: 140px;
     padding: 15px;
     cursor: pointer;
-    margin-left: 89.5px;
+    margin-left: 83.5px;
 }
 .send:hover {
     border: 5px solid #FFF;
@@ -98,6 +106,9 @@ html, body {
 }
 #form {
     display: none;
+}
+.fleet_form {
+    margin-top: -80px;
 }
 .msg {
     font-family: 'sfreg', 'Helvetica', 'sans-serif';
@@ -164,6 +175,9 @@ html, body {
       }
       .send {
           margin-left: 55px;
+      }
+      .fleet_form {
+          margin-top: 0px;
       }
 
 }
