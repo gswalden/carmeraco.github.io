@@ -1,0 +1,133 @@
+@font-face {
+    font-family: sfreg;
+    src: url('../fonts/sf-reg.ttf');
+}
+@font-face {
+    font-family: sfbold;
+    src: url('../fonts/sf-bold.ttf');
+}
+html, body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #373737;
+    font-family: 'sfreg', 'Helvetica', 'sans-serif';
+}
+.container {
+    width: 760px;
+    height: 325px;
+    position: relative;
+    margin-left: -380px;
+    left: 50%;
+    margin-top: -162.5px;
+    top: 50%;
+    /*background-color: #333;*/
+}
+
+.left {
+    float: left;
+    width: 379px;
+    height: 325px;
+}
+.center {
+    float: left;
+    width: 2px;
+    height: 325px;
+    background-color: #F58E26;
+}
+.right {
+    float: left;
+    width: 379px;
+    height: 325px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.right input {
+    width: 100%;
+    padding: 10px;
+    margin: 0px;
+    border: 0px;
+    font-family: 'sfreg', 'Helvetica', 'sans-serif';
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.right textarea {
+    width: 100%;
+    height: 82px;
+    padding: 10px;
+    margin: 0px;
+    border: 0px;
+    font-family: 'sfreg', 'Helvetica', 'sans-serif';
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    resize: none;
+    border-radius: 5px;
+}
+.getintouch {
+    font-family: 'sfbold', 'Helvetica', 'sans-serif';
+    color: #FFF;
+    border: 5px solid #F58E26;
+    border-radius: 40px;
+    text-align: center;
+    width: 140px;
+    padding: 15px;
+    cursor: pointer;
+    margin-left: 89.5px;
+    margin-top: 122.5px;
+}
+.getintouch:hover {
+    border: 5px solid #FFF;
+    background-color: #F58E26;
+}
+.send {
+    font-family: 'sfbold', 'Helvetica', 'sans-serif';
+    color: #FFF;
+    border: 5px solid #F58E26;
+    border-radius: 40px;
+    text-align: center;
+    width: 140px;
+    padding: 15px;
+    cursor: pointer;
+    margin-left: 89.5px;
+}
+.send:hover {
+    border: 5px solid #FFF;
+    background-color: #F58E26;
+}
+#form {
+    display: none;
+}
+.msg {
+    font-family: 'sfreg', 'Helvetica', 'sans-serif';
+    color: #F58E26;
+    font-size: 12px;
+}
+.logo {
+    width: 180px;
+    height: 78px;
+    background-image: url('../images/logo-web-orange-360x156.png');
+    background-size: 100%;
+    position: relative;
+    margin-top: 50px;
+    margin-left: -90px;
+    left: 50%;
+}
+.name {
+    width: 100%;
+    text-align: center;
+    font-family: 'sfreg', 'Helvetica', 'sans-serif';
+    font-size: 50px;
+    letter-spacing: 10px;
+    color: #FFF;
+    margin-top: 25px;
+}
+.line {
+    width: 100%;
+    text-align: center;
+    font-family: 'sfreg', 'Helvetica', 'sans-serif';
+    font-size: 18px;
+    color: #FFF;
+    margin-top: 25px;
+}

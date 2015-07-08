@@ -1,1 +1,87 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="assets/css/layout.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="left">
+            <div class="logo"></div>
+            <div class="name">CARMERA</div>
+            <div class="line">DATA. DRIVEN.</div>
+        </div>
+        <div class="center"></div>
+        <div class="right">
+            <div class="getintouch" id="getintouch">GET IN TOUCH</div>
+            <div id="form">
+                <div class="msg"></div>
+                <input name="entry.1438678335" placeholder="Name *">
+                <div class="msg"></div>
+                <input name="entry.1222672392" placeholder="Company or Website *">
+                <div class="msg"></div>
+                <input name="entry.669211929" placeholder="Email *">
+                <div class="msg"></div>
+                <textarea name="entry.1331114723" placeholder="Inquiry *"></textarea>
+                <div class="send" id="send">SEND</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+
+    var GoogleForm = function(google_id, data, cb) {
+        //var url = 'https://docs.google.com/a/carmera.co/forms/d/'+google_id+'/formResponse';
+        var url = "https://docs.google.com/forms/d/"+google_id+"/formResponse";
+        $.ajax( {
+            type: 'POST',
+            data: data,
+            dataType: 'xml',
+            url: url,
+            crossDomain: true,
+            complete: function(data, status) {
+                console.log(data);
+                console.log(status);
+            }
+        } );
+
+    };
+
+    $('#getintouch').on('click', function() {
+        $(this).fadeOut(500, function() {
+            $('#form').fadeIn(500);
+        } );
+    } );
+
+    $('#send').on('click', function() {
+
+        var data = {};
+
+        $('#form').children().each( function() {
+            if ($(this)[0].type == 'text' || $(this)[0].type == 'textarea') {
+                if ($(this).val() == '') {
+                    $(this).prev().html('Required Field');
+                    return;
+                }
+                data[$(this).attr('name')] = $(this).val();
+            }
+        } );
+
+        GoogleForm('13QnoMqDZhYPdks1gKCNp9FqmDg5xLm4HTJz3sfPqHzc', data, function() {
+
+        } );
+
+    } );
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-64904529-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+</body>
+</html>
