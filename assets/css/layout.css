@@ -171,7 +171,7 @@ html, body {
       }
       .getintouch {
           margin-left: 55px;
-          margin-top: 20px;
+          margin-top: 40px;
       }
       .send {
           margin-left: 55px;
@@ -179,5 +179,8 @@ html, body {
       .fleet_form {
           margin-top: 0px;
       }
-
+      .details {
+          margin-bottom: 40px;
+          margin-top: 40px;
+      }
 }
