@@ -104,6 +104,13 @@ html, body {
     color: #F58E26;
     font-size: 12px;
 }
+#ty {
+    color: #FFF;
+    text-align: center;
+    height: 20px;
+    margin-top: 152.5px;
+    display: none;
+}
 .logo {
     width: 180px;
     height: 78px;
@@ -130,4 +137,33 @@ html, body {
     font-size: 18px;
     color: #FFF;
     margin-top: 25px;
+}
+
+/* Portrait and Landscape */
+@media screen and (max-width: 760px) {
+
+      .container {
+          width: 320px;
+          margin-left: -160px;
+          margin-top: 0px;
+          top: 0px;
+      }
+      .left {
+          width: 320px;
+      }
+      .center {
+          width: 320px;
+          height: 2px;
+      }
+      .right {
+          width: 320px;
+      }
+      .getintouch {
+          margin-left: 55px;
+          margin-top: 20px;
+      }
+      .send {
+          margin-left: 55px;
+      }
+
 }

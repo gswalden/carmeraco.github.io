@@ -25,6 +25,7 @@
                 <textarea name="entry.1331114723" placeholder="Inquiry *"></textarea>
                 <div class="send" id="send">SEND</div>
             </div>
+            <div id="ty">Thank you!</div>
 
         </div>
     </div>
@@ -33,7 +34,6 @@
     <script>
 
     var GoogleForm = function(google_id, data, cb) {
-        //var url = 'https://docs.google.com/a/carmera.co/forms/d/'+google_id+'/formResponse';
         var url = "https://docs.google.com/forms/d/"+google_id+"/formResponse";
         $.ajax( {
             type: 'POST',
@@ -42,36 +42,42 @@
             url: url,
             crossDomain: true,
             complete: function(data, status) {
-                console.log(data);
-                console.log(status);
+                if (data.status == 0 || data.status == 200) {
+                    cb();
+                }
             }
         } );
-
     };
 
     $('#getintouch').on('click', function() {
-        $(this).fadeOut(500, function() {
-            $('#form').fadeIn(500);
+        $(this).fadeOut(100, function() {
+            $('#form').fadeIn(100);
         } );
     } );
 
     $('#send').on('click', function() {
 
+        var can_send = true;
         var data = {};
 
         $('#form').children().each( function() {
             if ($(this)[0].type == 'text' || $(this)[0].type == 'textarea') {
                 if ($(this).val() == '') {
                     $(this).prev().html('Required Field');
+                    can_send = false;
                     return;
                 }
                 data[$(this).attr('name')] = $(this).val();
             }
         } );
 
-        GoogleForm('13QnoMqDZhYPdks1gKCNp9FqmDg5xLm4HTJz3sfPqHzc', data, function() {
-
-        } );
+        if (can_send) {
+            GoogleForm('13QnoMqDZhYPdks1gKCNp9FqmDg5xLm4HTJz3sfPqHzc', data, function() {
+                $('#form').fadeOut(100, function() {
+                    $('#ty').fadeIn(100);
+                } );
+            } );
+        }
 
     } );
 
